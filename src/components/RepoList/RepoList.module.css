@@ -1,0 +1,33 @@
+.repo-list {
+  position: relative;
+  height: 600px;
+  width: 600px;
+  overflow: auto;
+}
+
+.repo-list__item {
+  position: absolute;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.repo-list__edit-mode {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.repo-list__buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.repo-list__loading {
+  text-align: center;
+  margin-top: 20px;
+}
