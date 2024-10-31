@@ -8,6 +8,9 @@ export const getRepos = async ({ page }: FetchReposParams) => {
       params: {
         page,
       },
+      headers: {
+        Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
+      },
     },
   );
 };

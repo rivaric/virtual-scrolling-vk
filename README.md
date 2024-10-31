@@ -1,50 +1,57 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Виртуальный Скроллинг VK
 
-Currently, two official plugins are available:
+Проект реализует виртуальный скроллинг для эффективного отображения больших списков. С помощью React, MobX и Material UI он динамически подгружает и управляет элементами списка, обеспечивая плавное прокручивание даже при большом объеме данных.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Особенности
 
-## Expanding the ESLint configuration
+- **Виртуальный скроллинг**: Эффективно отображает только видимые элементы длинного списка, снижая использование памяти.
+- **Пагинация**: Загружает больше элементов, когда пользователь прокручивает список до конца.
+- **Редактирование и удаление элементов**: Позволяет редактировать и удалять элементы в режиме реального времени.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Установка
 
-- Configure the top-level `parserOptions` property like this:
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/rivaric/virtual-scrolling-vk.git
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. Установите зависимости:
+   ```bash
+   yarn install
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. Настройте переменные окружения:
+   - Создайте файл `.env` в корневой директории проекта.
+   - Добавьте GitHub токен:
+     ```plaintext
+     VITE_GITHUB_TOKEN=ваш_персональный_токен
+     ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Компоненты
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **RepoList**: Основной компонент для отображения и управления списком репозиториев с виртуальным скроллингом, редактированием элементов и сортировкой.
+- **Интеграция с API**: Получает данные репозиториев с GitHub с использованием пагинации.
+
+## Скрипты
+
+- **`yarn run dev`**: Запускает приложение в режиме разработки.
+- **`yarn test`**: Запускает тесты.
+
+## Используемые технологии
+
+- **React**
+- **MobX**: Управление состоянием.
+- **Material UI**: Компоненты интерфейса.
+- **Axios**: Запросы к API GitHub.
+
+
+## Причина выбора Material UI
+
+Вы выбрали Material UI по нескольким причинам:
+
+1. Меньший вес по сравнению с Ant Design: Material UI легче по размеру, чем Ant Design, что способствует более быстрому времени загрузки и улучшает производительность приложения, особенно на мобильных устройствах.
+
+2. Поддержка UI/UX стандартов: Библиотека следует принципам Material Design от Google, что позволяет создавать интуитивные и визуально привлекательные интерфейсы с использованием лучших практик пользовательского опыта.
+
+3. Гибкость и настраиваемость: Material UI поддерживает гибкую настройку тем, цветов и стилей, что позволяет легко адаптировать дизайн к брендингу и стилистическим требованиям.
